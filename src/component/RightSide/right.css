@@ -1,0 +1,17 @@
+.right {
+    height: 500px;
+    width: 60%;
+    border: 1px solid gray;
+    overflow-y: auto;
+
+}
+
+.card h4 {
+    margin: 0;
+}
+
+.card img {
+    width: 90%;
+    height: 50%;
+    object-fit: cover;
+}

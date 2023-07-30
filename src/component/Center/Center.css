@@ -1,0 +1,16 @@
+.parent {
+    /* position: relative; */
+    height: 500px;
+    width: 20%;
+    border: 1px solid gray;
+}
+
+/* .child {
+    position: relative;
+    left: 5px;
+} */
+/* 
+input {
+    position: absolute;
+    top: 20px;
+} */
