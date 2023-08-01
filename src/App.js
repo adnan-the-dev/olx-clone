@@ -52,12 +52,12 @@ function App() {
     }
   ])
 
-function userData (){
-  setUsers([users])
-}
+  function userData() {
+    setUsers([users])
+  }
 
 
-
+  console.log(userData);
 
 
   const [data, setData] = useState([])
