@@ -9,7 +9,7 @@ function RightSide({ data }) {
         <>
             <div className="right">
                 Right Side
-                <Card isAdmin={true} />
+                {/* <Card isAdmin={true} /> */}
                 <CardData data={data} />
 
             </div>

@@ -15,37 +15,37 @@ function CardData({ data }) {
                 gap: '10px'
             }}>
 
-                {data?.map((item, index) => {
-                    const even = index % 2 == 0
-                    return (
+                    {data?.map((item, index) => {
+                        const even = index % 2 == 0
+                        return (
 
 
-                        <div className="card"
-                            key={index}
-                            style={{
-                                minHeight: '150px',
-                                width: '150px',
-                                padding: '5px',
-                                border: '1px solid gray',
-                                borderRadius: '7px',
-                                boxShadow: "5px 5px 6px -2px rgba(128,128,128,0.78)",
-                                color: "red"
+                            <div className="card"
+                                key={index}
+                                style={{
+                                    minHeight: '150px',
+                                    width: '150px',
+                                    padding: '5px',
+                                    border: '1px solid gray',
+                                    borderRadius: '7px',
+                                    boxShadow: "5px 5px 6px -2px rgba(128,128,128,0.78)",
+                                    color: "red"
 
-                            }} >
-                            <img src={even ? sun1 : sun2} alt="any" />
-                            <h4>
-                                menuName: {item.menuName}
-                            </h4>
-                            <h4>
-                                price: {item.price}
-                            </h4>
-                            <h4>
-                                totalItem: {item.totalItem}
-                            </h4>
-                        </div>
+                                }} >
+                                <img src={even ? sun1 : sun2} alt="any" />
+                                <h4>
+                                    menuName: {item.menuName}
+                                </h4>
+                                <h4>
+                                    price: {item.price}
+                                </h4>
+                                <h4>
+                                    totalItem: {item.totalItem}
+                                </h4>
+                            </div>
 
-                    )
-                })}
+                        )
+                    })}
 
 
             </div>
