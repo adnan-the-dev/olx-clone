@@ -10,9 +10,9 @@ import Appbar from './component/Header/components/Appbar';
 
 function App() {
 
-  function changeTheme() {
-    console.log("jgjhg");
-  }
+  // function changeTheme() {
+  //   console.log("jgjhg");
+  // }
 
 
 
@@ -51,6 +51,15 @@ function App() {
       img: ''
     }
   ])
+
+function userData (){
+  setUsers([users])
+}
+
+
+
+
+
   const [data, setData] = useState([])
 
 
@@ -67,7 +76,7 @@ function App() {
       <div className='main'>
         <LeftSide />
         <Center callFunc={callFunc} />
-        <RightSide data={data} callFunc={callFunc} />
+        <RightSide data={data} callFunc={callFunc} users={userData} />
       </div>
       <div>
         {/* <Appbar onChangeTheme={changeTheme} /> */}
