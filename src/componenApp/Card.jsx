@@ -32,7 +32,19 @@ function Info({ users }) {
                                 <div className="status" style={{
 
                                     backgroundColor: item.active ? 'green' : 'red'
+                                    // backgroundColor: item.age <= 25 ? 'blue' : 'yellow'
                                 }}>
+                                </div>
+                                <div>
+                                    <p>
+                                        <b>{item.age >= 25 ? 'eligible' : 'not eligible'}</b>
+                                    </p>
+                                </div>
+
+                                <div className="status" style={{
+                                    backgroundColor: item.age >= 25 ? 'blue' : 'yellow'
+                                }}>
+
                                 </div>
                             </div>
                         )

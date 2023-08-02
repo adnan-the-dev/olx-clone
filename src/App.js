@@ -21,7 +21,7 @@ function App() {
     {
       id: '1',
       name: 'Uzair',
-      age: '24',
+      age: '30',
       active: true,
       height: 6.2,
       img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'
@@ -37,7 +37,7 @@ function App() {
     {
       id: '3',
       name: 'Farhan',
-      age: '25',
+      age: '35',
       active: true,
       height: 5.7,
       img: 'https://hips.hearstapps.com/hmg-prod/images/nature-quotes-landscape-1648265299.jpg'
