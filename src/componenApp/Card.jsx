@@ -9,42 +9,48 @@ function Info({ users }) {
                 {
                     users.map((item, index) => {
                         return (
-                            <div key={index} className="child">
+                            <div key={index} className="card">
 
 
                                 <img src={item.img} className="img" alt="" />
-                                <p>
-                                    Name: <b>{item.name}</b>
-                                </p>
-                                <p>
-                                    Age: <b>{item.age}</b>
-                                </p>
-                                <p>
-                                    Height: <b>{item.height}</b>
-                                </p>
-                                <p>
-                                    Id: <b>{item.id}</b>
-                                </p>
-                                <p>
-                                    Status: <b>{item.active == true ? "Active" : "Offline"}</b>
-                                </p>
+                                <span className="title">{item.name}</span>
+                                <div className="body">
+                                    <div>
+                                        Age: <b>{item.age}</b>
+                                    </div>
+                                    <div>
+                                        Height: <b>{item.height}</b>
+                                    </div>
+                                    <div>
+                                        Id: <b>{item.id}</b>
+                                    </div>
 
-                                <div className="status" style={{
 
-                                    backgroundColor: item.active ? 'green' : 'red'
-                                    // backgroundColor: item.age <= 25 ? 'blue' : 'yellow'
-                                }}>
-                                </div>
-                                <div>
-                                    <p>
+
+
+                                    <div className="active">
+
+                                        Status: <b>{item.active == true ? "Active" : "Offline"}</b>
+
+
+                                        <div className="status" style={{
+
+                                            backgroundColor: item.active ? 'green' : 'red'
+                                        }}>
+                                        </div>
+                                    </div>
+
+                                    <div className="active">
+
                                         <b>{item.age >= 25 ? 'eligible' : 'not eligible'}</b>
-                                    </p>
-                                </div>
 
-                                <div className="status" style={{
-                                    backgroundColor: item.age >= 25 ? 'blue' : 'yellow'
-                                }}>
 
+
+                                        <div className="status" style={{
+                                            backgroundColor: item.age >= 25 ? 'green' : 'red'
+                                        }}>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         )
