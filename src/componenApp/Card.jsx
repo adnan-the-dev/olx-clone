@@ -24,10 +24,7 @@ function Info({ users }) {
                                     <div>
                                         Id: <b>{item.id}</b>
                                     </div>
-
-
-
-
+                                    
                                     <div className="active">
 
                                         Status: <b>{item.active == true ? "Active" : "Offline"}</b>

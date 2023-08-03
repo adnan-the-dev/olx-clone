@@ -6,6 +6,8 @@ import LeftSide from './component/LeftSide/LeftSide';
 import Center from './component/Center/Center';
 import Appbar from './component/Header/components/Appbar';
 import Info from './componenApp/Card';
+import Middle from './componenApp/componentBox/Middle';
+import Right from './componenApp/componentBox/Right';
 // import Header from './component/Header/Header';
 
 
@@ -76,7 +78,9 @@ function App() {
       <div>
       </div> */}
 
-      <Info users={users} />
+      {/* <Info users={users} /> */}
+      <Middle/>
+      <Right/>
 
 
     </div>
