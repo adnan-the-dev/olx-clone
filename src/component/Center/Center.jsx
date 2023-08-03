@@ -20,7 +20,6 @@ function Center({ callFunc }) {
         settotal(event.target.value)
     }
 
-// console.log(total);
 
     function callingProp() {
         const menu = {
