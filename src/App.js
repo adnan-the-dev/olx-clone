@@ -64,6 +64,14 @@ function App() {
     setData([...data, menu])
   }
 
+  const [user, setUser] = useState([])
+
+  function getDataFromMiddle(data) {
+    setUser([...user, data])
+  }
+
+  // console.log(users, 'users');
+
 
 
   return (
@@ -79,8 +87,8 @@ function App() {
       </div> */}
 
       {/* <Info users={users} /> */}
-      <Middle/>
-      <Right/>
+      <Middle getDataFromMiddle={getDataFromMiddle} />
+      <Right user={user} />
 
 
     </div>

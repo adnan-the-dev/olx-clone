@@ -3,6 +3,8 @@ import "./style.css"
 
 function Info({ users }) {
     console.log(users, 'users');
+
+    const alternativeImage = `https://fiverr-res.cloudinary.com/images/t_small_thumbnail,q_auto,f_auto/gigs/285596247/original/378b07fd800112569f4d2aef19c91d40e4a3bd87/develop-a-web-app-using-react-nest-and-mongodb.jpg`
     return (
         <>
             <div className="main">
@@ -12,7 +14,7 @@ function Info({ users }) {
                             <div key={index} className="card">
 
 
-                                <img src={item.img} className="img" alt="" />
+                                <img src={item.img || alternativeImage} className="img" alt="" />
                                 <span className="title">{item.name}</span>
                                 <div className="body">
                                     <div>
@@ -24,7 +26,7 @@ function Info({ users }) {
                                     <div>
                                         Id: <b>{item.id}</b>
                                     </div>
-                                    
+
                                     <div className="active">
 
                                         Status: <b>{item.active == true ? "Active" : "Offline"}</b>
