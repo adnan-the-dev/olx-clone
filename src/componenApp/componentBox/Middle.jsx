@@ -1,44 +1,74 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-function Middle(sendData) {
+function Middle({ getDataFromMiddle }) {
+
 
     const [personName, setPersonName] = useState("")
 
-    const nameChange = (event)=>{
+    const nameChange = (event) => {
         setPersonName(event.target.value)
     }
     // console.log(personName,'yellow');
-    const [personAge,setPersonAge]=useState("")
+    const [personAge, setPersonAge] = useState("")
 
-    const ageChange = (event)=>{
+    const ageChange = (event) => {
         setPersonAge(event.target.value)
     }
     // console.log(personAge,'hello');
 
-    const [personHeight,setPersonHeight]=useState("")
+    const [personHeight, setPersonHeight] = useState("")
 
-    const heightChange = (event)=>{
+    const heightChange = (event) => {
         setPersonHeight(event.target.value)
     }
 
     // console.log(personHeight,'green');
 
-    const [personId,setPersonId] = useState("")
+    const [personId, setPersonId] = useState("")
 
-    const idChange =(event)=>{
+    const idChange = (event) => {
         setPersonId(event.target.value)
     }
     // console.log(personId,'blue');
 
-    function inputData(){
-        const myData ={
-            Name:personName,
-            Age:personAge,
-            Height:personHeight,
-            Id:personId,
-        }
-        sendData(myData)
+    const [itemImage, setItemImage] = useState("")
+
+    const imgChange = (event) => {
+        // console.log(event);
+        setItemImage(event.target.value)
     }
+
+    const [checked, setChecked] = useState(false)
+    const handleClick = () => setChecked(!checked)
+
+    // console.log(checked, 'hello');
+
+    function inputData() {
+
+        const myData = {
+            name: personName,
+            age: personAge,
+            height: personHeight,
+            id: personId,
+            img: itemImage,
+            active: checked,
+        }
+
+        getDataFromMiddle(myData)
+
+    }
+
+    // useEffect(() => {
+
+
+    //     setPersonName("")
+    //     setPersonAge("")
+    //     setPersonHeight("")
+    //     setPersonId("")
+    //     setItemImage("")
+    //     setChecked(!checked)
+
+    // }, [])
 
 
 
@@ -48,28 +78,37 @@ function Middle(sendData) {
             width: '15%',
             border: '1px solid gray',
         }}>
-            <form onSubmit={(event)=>{
-                inputData()
+            <form onSubmit={(event) => {
                 event.preventDefault()
-            }} style={{
-                margin:'12px'
-            }}>
+                inputData()
+            }}
+                style={{
+                    margin: '12px'
+                }}>
                 <p><label htmlFor='name' >Person Name:</label></p>
-                <input required type="text" id="name" placeholder="Name" onChange={nameChange}/>
+                <input type="text" id="name" placeholder="Name" onChange={nameChange} />
+
+                <p><label htmlFor='name' >Item Image:</label></p>
+                <input type="text" id="name" placeholder="image" onChange={imgChange} />
 
 
                 <p><label htmlFor='name' >Person age:</label></p>
-                <input required type="number" id="name" placeholder="Age" onChange={ageChange}/>
+                <input type="number" id="name" placeholder="Age" onChange={ageChange} />
 
 
                 <p><label htmlFor='name' >Person height:</label></p>
-                <input required type="number" id="name" placeholder="Height " onChange={heightChange}/>
+                <input type="number" id="name" placeholder="Height " onChange={heightChange} />
 
                 <p><label htmlFor='name' >Person Id:</label></p>
-                <input required type="text" id="name" placeholder="Enter Id " onChange={idChange}/>
+                <input type="text" id="name" placeholder="Enter Id " onChange={idChange} />
 
 
-               <p> <button type="submit" >Submit</button> </p>
+                <p><label htmlFor='name' >Person Status:</label></p>
+                <input onChange={handleClick} checked={checked} type="checkbox" />
+
+
+
+                <p> <button type="submit" >Submit</button> </p>
             </form>
         </div>
     )
