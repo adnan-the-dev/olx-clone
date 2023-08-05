@@ -86,21 +86,21 @@ function Middle({ getDataFromMiddle }) {
                     margin: '12px'
                 }}>
                 <p><label htmlFor='name' >Person Name:</label></p>
-                <input type="text" id="name" placeholder="Name" onChange={nameChange} />
+                <input  type="text" id="name" placeholder="Name" onChange={nameChange} />
 
                 <p><label htmlFor='name' >Item Image:</label></p>
-                <input type="text" id="name" placeholder="image" onChange={imgChange} />
+                <input  type="text" id="name" placeholder="image" onChange={imgChange} />
 
 
                 <p><label htmlFor='name' >Person age:</label></p>
-                <input type="number" id="name" placeholder="Age" onChange={ageChange} />
+                <input  type="number" id="name" placeholder="Age" onChange={ageChange} />
 
 
                 <p><label htmlFor='name' >Person height:</label></p>
-                <input type="number" id="name" placeholder="Height " onChange={heightChange} />
+                <input  type="number" id="name" placeholder="Height " onChange={heightChange} />
 
                 <p><label htmlFor='name' >Person Id:</label></p>
-                <input type="text" id="name" placeholder="Enter Id " onChange={idChange} />
+                <input  type="text" id="name" placeholder="Enter Id " onChange={idChange} />
 
 
                 <p><label htmlFor='name' >Person Status:</label></p>
