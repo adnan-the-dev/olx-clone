@@ -11,6 +11,15 @@ import Right from './componenApp/componentBox/Right';
 // import Header from './component/Header/Header';
 
 
+const defaultValue = {
+  id: '',
+  name: '',
+  age: '',
+  active: false,
+  height: "",
+  img: ''
+}
+
 function App() {
 
   // function changeTheme() {
@@ -19,6 +28,51 @@ function App() {
 
 
 
+  // const [users, setUsers] = useState([
+  //   {
+  //     id: '1',
+  //     name: 'Uzair',
+  //     age: '30',
+  //     active: true,
+  //     height: 6.2,
+  //     img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'
+  //   },
+  //   {
+  //     id: '2',
+  //     name: 'Adnan',
+  //     age: '21',
+  //     active: false,
+  //     height: 6.1,
+  //     img: 'https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg'
+  //   },
+  //   {
+  //     id: '3',
+  //     name: 'Farhan',
+  //     age: '35',
+  //     active: true,
+  //     height: 5.7,
+  //     img: 'https://hips.hearstapps.com/hmg-prod/images/nature-quotes-landscape-1648265299.jpg'
+
+  //   },
+  //   {
+  //     id: '4',
+  //     name: 'Zeeshan',
+  //     age: '25',
+  //     active: false,
+  //     height: 5.7,
+  //     img: 'https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325466/man-walking-dog.jpg'
+  //   }
+  // ])
+
+
+
+  const [data, setData] = useState([])
+
+
+  function callFunc(menu) {
+    setData([...data, menu])
+  }
+  const [user, setUser] = useState(defaultValue);
   const [users, setUsers] = useState([
     {
       id: '1',
@@ -55,53 +109,12 @@ function App() {
     }
   ])
 
-
-
-  const [data, setData] = useState([])
-
-
-  function callFunc(menu) {
-    setData([...data, menu])
-  }
-
-  const [user, setUser] = useState([
-    {
-      id: '1',
-      name: 'Uzair',
-      age: '30',
-      active: true,
-      height: 6.2,
-      img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'
-    },
-    {
-      id: '2',
-      name: 'Adnan',
-      age: '21',
-      active: false,
-      height: 6.1,
-      img: 'https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg'
-    },
-    {
-      id: '3',
-      name: 'Farhan',
-      age: '35',
-      active: true,
-      height: 5.7,
-      img: 'https://hips.hearstapps.com/hmg-prod/images/nature-quotes-landscape-1648265299.jpg'
-
-    },
-    {
-      id: '4',
-      name: 'Zeeshan',
-      age: '25',
-      active: false,
-      height: 5.7,
-      img: 'https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325466/man-walking-dog.jpg'
-    }
-  ])
-
   function getDataFromMiddle(data) {
-    setUser([...user, data])
+    console.log(defaultValue, 'hello');
+    setUser(defaultValue)
+    if (users.find(user => user.id == data.id)) setUsers(users.map(user => user.id == data.id ? data : user))
+    else
+      setUsers([...users, data])
   }
 
   // console.log(users, 'users');
@@ -119,8 +132,8 @@ function App() {
       </div> */}
 
       {/* <Info users={users} /> */}
-      <Middle getDataFromMiddle={getDataFromMiddle} />
-      <Right user={user} />
+      <Middle getDataFromMiddle={getDataFromMiddle} user={user} />
+      <Right users={users} setUser={setUser} />
 
 
     </div>
