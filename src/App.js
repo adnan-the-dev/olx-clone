@@ -64,15 +64,47 @@ function App() {
     setData([...data, menu])
   }
 
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState([
+    {
+      id: '1',
+      name: 'Uzair',
+      age: '30',
+      active: true,
+      height: 6.2,
+      img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'
+    },
+    {
+      id: '2',
+      name: 'Adnan',
+      age: '21',
+      active: false,
+      height: 6.1,
+      img: 'https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg'
+    },
+    {
+      id: '3',
+      name: 'Farhan',
+      age: '35',
+      active: true,
+      height: 5.7,
+      img: 'https://hips.hearstapps.com/hmg-prod/images/nature-quotes-landscape-1648265299.jpg'
+
+    },
+    {
+      id: '4',
+      name: 'Zeeshan',
+      age: '25',
+      active: false,
+      height: 5.7,
+      img: 'https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325466/man-walking-dog.jpg'
+    }
+  ])
 
   function getDataFromMiddle(data) {
     setUser([...user, data])
   }
 
   // console.log(users, 'users');
-
-
 
   return (
 
