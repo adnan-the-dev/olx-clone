@@ -5,6 +5,7 @@
         grid-auto-rows: max-content;
         gap: 10px;
         padding: 5px 10px;
+        width: 100%;
     }
 
     .card {
@@ -50,17 +51,18 @@
         align-items: center;
         gap: 8px;
     }
-    .edit{
-        
+
+    .edit {
+
         height: 23px;
         width: 23px;
         cursor: pointer;
     }
-    .delete{
+
+    .delete {
         position: absolute;
         cursor: pointer;
         height: 23px;
         width: 23px;
         right: 0px;
     }
-    
