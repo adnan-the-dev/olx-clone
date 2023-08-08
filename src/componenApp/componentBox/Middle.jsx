@@ -1,58 +1,42 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
+function Middle({ getDataFromMiddle, toBeEdit }) {
 
+    console.log(toBeEdit, 'toBeEdit');
 
-
-
-function Middle({ getDataFromMiddle, user }) {
-
-    const [personName, setPersonName] = useState("hjghjgh")
+    const [personName, setPersonName] = useState("")
 
     const nameChange = (event) => {
         setPersonName(event.target.value)
     }
-    // console.log(personName,'yellow');
-    const [personAge, setPersonAge] = useState(user.age)
+    const [personAge, setPersonAge] = useState("")
 
     const ageChange = (event) => {
         setPersonAge(event.target.value)
     }
-    // console.log(personAge,'hello');
 
-    const [personHeight, setPersonHeight] = useState(user.height)
+    const [personHeight, setPersonHeight] = useState("")
 
     const heightChange = (event) => {
         setPersonHeight(event.target.value)
     }
 
-    // console.log(personHeight,'green');
 
-    const [personId, setPersonId] = useState(user.id)
+    const [personId, setPersonId] = useState("")
 
     const idChange = (event) => {
         setPersonId(event.target.value)
     }
-    // console.log(personId,'blue');
 
-    const [itemImage, setItemImage] = useState(user.img)
+    const [itemImage, setItemImage] = useState("")
 
     const imgChange = (event) => {
-        // console.log(event);
         setItemImage(event.target.value)
     }
 
-    const [checked, setChecked] = useState(user.active)
+    const [checked, setChecked] = useState("")
     const handleClick = () => setChecked(!checked)
 
-    // console.log(checked, 'hello');
-    // useEffect(() => {
-    //     setPersonName(user.name);
-    //     setPersonAge(user.age);
-    //     setPersonHeight(user.height);
-    //     setPersonId(user.id);
-    //     setItemImage(user.img);
-    //     setChecked(user.active);
-    // }, [user])
     function inputData() {
 
         const myData = {
@@ -66,6 +50,7 @@ function Middle({ getDataFromMiddle, user }) {
 
         getDataFromMiddle(myData)
     }
+
 
 
     return (
@@ -83,25 +68,25 @@ function Middle({ getDataFromMiddle, user }) {
                     margin: '12px'
                 }}>
                 <p><label htmlFor='name' >Person Name:</label></p>
-                <input type="text" id="name" value={personName} placeholder="Name" onChange={nameChange} />
+                <input type="text" id="name" placeholder="Name" onChange={nameChange} value={toBeEdit?.name || ''} />
 
                 <p><label htmlFor='name' >Item Image:</label></p>
-                <input type="text" id="name" value={itemImage} placeholder="image" onChange={imgChange} />
+                <input type="text" id="name" placeholder="image" onChange={imgChange} value={toBeEdit?.img || ''} />
 
 
                 <p><label htmlFor='name' >Person age:</label></p>
-                <input type="number" id="name" value={personAge} placeholder="Age" onChange={ageChange} />
+                <input type="number" id="name" placeholder="Age" onChange={ageChange} value={toBeEdit?.age || ''} />
 
 
                 <p><label htmlFor='name' >Person height:</label></p>
-                <input type="number" id="name" value={personHeight} placeholder="Height " onChange={heightChange} />
+                <input type="number" id="name" placeholder="Height " onChange={heightChange} value={toBeEdit?.height || ''} />
 
                 <p><label htmlFor='name' >Person Id:</label></p>
-                <input type="text" id="name" value={personId} placeholder="Enter Id " onChange={idChange} />
+                <input type="text" id="name" placeholder="Enter Id " onChange={idChange} value={toBeEdit?.id || ''} />
 
 
                 <p><label htmlFor='name' >Person Status:</label></p>
-                <input onChange={handleClick} checked={checked} type="checkbox" />
+                <input onChange={handleClick} checked={toBeEdit?.active ? checked : 0} type="checkbox" value={toBeEdit?.activ || ''} />
 
 
 

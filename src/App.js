@@ -8,24 +8,10 @@ import Appbar from './component/Header/components/Appbar';
 import Info from './componenApp/Card';
 import Middle from './componenApp/componentBox/Middle';
 import Right from './componenApp/componentBox/Right';
-// import Header from './component/Header/Header';
 
 
-const defaultValue = {
-  id: '',
-  name: '',
-  age: '',
-  active: false,
-  height: "",
-  img: ''
-}
 
 function App() {
-
-  // function changeTheme() {
-  //   console.log("jgjhg");
-  // }
-
 
 
   // const [users, setUsers] = useState([
@@ -72,7 +58,6 @@ function App() {
   function callFunc(menu) {
     setData([...data, menu])
   }
-  const [user, setUser] = useState(defaultValue);
   const [users, setUsers] = useState([
     {
       id: '1',
@@ -109,15 +94,21 @@ function App() {
     }
   ])
 
+
   function getDataFromMiddle(data) {
-    console.log(defaultValue, 'hello');
-    setUser(defaultValue)
-    if (users.find(user => user.id == data.id)) setUsers(users.map(user => user.id == data.id ? data : user))
-    else
-      setUsers([...users, data])
+    setUsers([...users, data])
   }
 
-  // console.log(users, 'users');
+  const [toBeEdit, setToBeEdit] = useState('')
+
+
+  function editUserFun({ index, id }) {
+
+    setToBeEdit(users.find((user) => user.id === id))
+
+  }
+
+
 
   return (
 
@@ -132,8 +123,8 @@ function App() {
       </div> */}
 
       {/* <Info users={users} /> */}
-      <Middle getDataFromMiddle={getDataFromMiddle} user={user} />
-      <Right users={users} setUser={setUser} />
+      <Middle getDataFromMiddle={getDataFromMiddle} toBeEdit={toBeEdit} />
+      <Right users={users} editUserFun={editUserFun} />
 
 
     </div>
