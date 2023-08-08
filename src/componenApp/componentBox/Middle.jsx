@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function Middle({ getDataFromMiddle, toBeEdit }) {
-
-    console.log(toBeEdit, 'toBeEdit');
+function Middle({ getDataFromMiddle, toBeEdit, users , nowEdit }) {
 
     const [personName, setPersonName] = useState("")
 
@@ -21,7 +19,6 @@ function Middle({ getDataFromMiddle, toBeEdit }) {
         setPersonHeight(event.target.value)
     }
 
-
     const [personId, setPersonId] = useState("")
 
     const idChange = (event) => {
@@ -39,7 +36,6 @@ function Middle({ getDataFromMiddle, toBeEdit }) {
 
     const handleUpdate = () => {
         if (toBeEdit) {
-            console.log(toBeEdit, 'here');
             setPersonName(toBeEdit?.name || '')
             setPersonAge(toBeEdit?.age || '')
             setPersonHeight(toBeEdit?.height || '')
@@ -51,11 +47,7 @@ function Middle({ getDataFromMiddle, toBeEdit }) {
         handleUpdate()
     }, [toBeEdit])
 
-
-
-    console.log('test');
     function inputData() {
-
         const myData = {
             name: personName,
             age: personAge,
@@ -64,11 +56,13 @@ function Middle({ getDataFromMiddle, toBeEdit }) {
             img: itemImage,
             active: checked,
         }
-
-        getDataFromMiddle(myData)
+        if (toBeEdit) {
+            nowEdit(myData)
+        }
+        else {
+            getDataFromMiddle(myData)
+        }
     }
-
-
 
     return (
         <div style={{
@@ -106,9 +100,9 @@ function Middle({ getDataFromMiddle, toBeEdit }) {
                 <p><label htmlFor='name' >Person Status:</label></p>
                 <input onChange={handleClick} checked={checked} type="checkbox" />
 
-
-
-                <p> <button type="submit" >Submit</button> </p>
+                {toBeEdit ? (<p> <button type="submit" >Update</button> </p> ) :
+                (<p> <button type="submit" >Submit</button> </p>)
+                }
             </form>
         </div>
     )
