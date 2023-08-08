@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Middle({ getDataFromMiddle, toBeEdit }) {
 
@@ -37,6 +37,23 @@ function Middle({ getDataFromMiddle, toBeEdit }) {
     const [checked, setChecked] = useState("")
     const handleClick = () => setChecked(!checked)
 
+    const handleUpdate = () => {
+        if (toBeEdit) {
+            console.log(toBeEdit, 'here');
+            setPersonName(toBeEdit?.name || '')
+            setPersonAge(toBeEdit?.age || '')
+            setPersonHeight(toBeEdit?.height || '')
+            setPersonId(toBeEdit?.id || '')
+            setItemImage(toBeEdit?.img || '')
+        }
+    }
+    useEffect(() => {
+        handleUpdate()
+    }, [toBeEdit])
+
+
+
+    console.log('test');
     function inputData() {
 
         const myData = {
@@ -67,26 +84,27 @@ function Middle({ getDataFromMiddle, toBeEdit }) {
                 style={{
                     margin: '12px'
                 }}>
+
                 <p><label htmlFor='name' >Person Name:</label></p>
-                <input type="text" id="name" placeholder="Name" onChange={nameChange} value={toBeEdit?.name || ''} />
+                <input type="text" id="name" placeholder="Name" onChange={nameChange} value={personName} />
 
                 <p><label htmlFor='name' >Item Image:</label></p>
-                <input type="text" id="name" placeholder="image" onChange={imgChange} value={toBeEdit?.img || ''} />
+                <input type="text" id="name" placeholder="image" onChange={imgChange} value={itemImage} />
 
 
                 <p><label htmlFor='name' >Person age:</label></p>
-                <input type="number" id="name" placeholder="Age" onChange={ageChange} value={toBeEdit?.age || ''} />
+                <input type="number" id="name" placeholder="Age" onChange={ageChange} value={personAge} />
 
 
                 <p><label htmlFor='name' >Person height:</label></p>
-                <input type="number" id="name" placeholder="Height " onChange={heightChange} value={toBeEdit?.height || ''} />
+                <input type="number" id="name" placeholder="Height " onChange={heightChange} value={personHeight} />
 
                 <p><label htmlFor='name' >Person Id:</label></p>
-                <input type="text" id="name" placeholder="Enter Id " onChange={idChange} value={toBeEdit?.id || ''} />
+                <input type="text" id="name" placeholder="Enter Id " onChange={idChange} value={personId} />
 
 
                 <p><label htmlFor='name' >Person Status:</label></p>
-                <input onChange={handleClick} checked={toBeEdit?.active ? checked : 0} type="checkbox" value={toBeEdit?.activ || ''} />
+                <input onChange={handleClick} checked={checked} type="checkbox" />
 
 
 
