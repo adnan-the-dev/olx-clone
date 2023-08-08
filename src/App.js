@@ -48,14 +48,14 @@ function App() {
 
 
   // edit section
-  const [toBeEdit, setToBeEdit] = useState('')
+  const [toBeEdit, setToBeEdit] = useState({})
 
   function editUserFun({ index, id }) {
     setToBeEdit(users.find((user) => user.id === id))
   }
 
-  function nowEdit (myData){
-    const userIndex = users.findIndex((user)=>user.id === myData.id)
+  function nowEdit(myData) {
+    const userIndex = users.findIndex((user) => user.id === myData.id)
     users[userIndex] = myData
     setUsers([...users])
   }

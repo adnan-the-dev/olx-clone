@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function Middle({ getDataFromMiddle, toBeEdit, users , nowEdit }) {
+function Middle({ getDataFromMiddle, toBeEdit, users, nowEdit }) {
 
     const [personName, setPersonName] = useState("")
 
@@ -58,10 +58,22 @@ function Middle({ getDataFromMiddle, toBeEdit, users , nowEdit }) {
         }
         if (toBeEdit) {
             nowEdit(myData)
+            clearForm()
+
         }
         else {
             getDataFromMiddle(myData)
+            clearForm()
         }
+    }
+
+
+    function clearForm() {
+        setPersonName('')
+        setPersonAge('')
+        setPersonHeight('')
+        setPersonId('')
+        setItemImage('')
     }
 
     return (
@@ -100,8 +112,8 @@ function Middle({ getDataFromMiddle, toBeEdit, users , nowEdit }) {
                 <p><label htmlFor='name' >Person Status:</label></p>
                 <input onChange={handleClick} checked={checked} type="checkbox" />
 
-                {toBeEdit ? (<p> <button type="submit" >Update</button> </p> ) :
-                (<p> <button type="submit" >Submit</button> </p>)
+                {toBeEdit ? (<p> <button type="submit" >Update</button> </p>) :
+                    (<p> <button type="submit" >Submit</button> </p>)
                 }
             </form>
         </div>
