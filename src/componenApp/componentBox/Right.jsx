@@ -2,53 +2,22 @@ import React, { useEffect, useState } from 'react'
 import '../style.css'
 function Right({ users, editUserFun }) {
 
-  // console.log(editUserFun, 'helloWorld');
-
-
   const alternateImg = `https://static.thenounproject.com/png/3324336-200.png`
 
-
-
   const [userId, setUserId] = useState("");
-
-
   const [userEdit, setUserEdit] = useState("")
 
-
   const userIndex = users.findIndex((item) => item.id == userId)
-
 
   const userEditIndex = users.findIndex((item) => item.id == userEdit)
 
   editUserFun({ index: userEditIndex, id: userEdit })
 
-  // console.log(editUserFun);
-
-
-  // console.log(userEdit, userEditIndex);
-
-
-
 
   const removeUser = () => {
-
     users.splice(userIndex, 1)
     setUserId("")
-
   }
-
-  // const [userEdit, setUserEdit] = useState("")
-  // const editIndex = users.findIndex((item) => item.id == userEdit)
-
-  // console.log(editIndex, 'yellow');
-
-  // const userEdit = (id) => {
-  //   let newEditItem = users.find((item) => {
-  //     return item.id === id
-  //   })
-  //   console.log(newEditItem, 'hello');
-  // }
-
 
   return (
     <div style={{ width: '100%' }}>
@@ -61,11 +30,9 @@ function Right({ users, editUserFun }) {
           {
             users.map((item, index) => {
 
-
               return (
                 <div key={index} className='card'>
                   <div>
-
                     <svg onClick={() => setUserEdit(item.id)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="edit">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
                     </svg>
@@ -124,7 +91,6 @@ function Right({ users, editUserFun }) {
           </div>
         )
       }
-
     </div>
 
   )
