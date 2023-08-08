@@ -53,6 +53,7 @@ function Middle({ getDataFromMiddle, toBeEdit }) {
 
 
 
+    console.log('test');
     function inputData() {
 
         const myData = {
