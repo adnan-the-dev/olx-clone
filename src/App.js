@@ -44,6 +44,12 @@ function App() {
 
   function getDataFromMiddle(data) {
     setUsers([...users, data])
+
+    // localStorage.setItem('users', JSON.stringify([...users]))
+    // const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+    // const updatedUsers = [...existingUsers, data];
+    // setUsers(updatedUsers);
+    // localStorage.setItem('users', JSON.stringify(updatedUsers));
   }
 
 

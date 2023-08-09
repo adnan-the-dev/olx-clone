@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import '../style.css'
+import './right.css'
 function Right({ users, editUserFun }) {
+
+  const categories = ['all', 'active', 'In-active']
 
   const alternateImg = `https://static.thenounproject.com/png/3324336-200.png`
 
   const [userId, setUserId] = useState("");
   const [userEdit, setUserEdit] = useState("")
+
+  const [categroy, setCateGroy] = useState("all")
+
+  const activeUsers = users.filter((user) => user.active)
+  const inActiveUsers = users.filter((user) => !user.active)
+
+  const filteredArray = categroy === "all" ? users : categroy === "active" ?
+    activeUsers : categroy === "In-active" ?
+      inActiveUsers : null
+
+
 
   const userIndex = users.findIndex((item) => item.id == userId)
 
@@ -26,9 +40,20 @@ function Right({ users, editUserFun }) {
         width: '100%',
         border: '1px solid red'
       }}>
+
+        <div className='user-btn'>
+          {categories.map((cat, ind) => (
+            <button style={{
+              backgroundColor: categroy == cat ? 'rgb(61, 68, 68)' : '#4CAF50'
+            }} key={ind} onClick={() => { setCateGroy(cat) }}>{cat}</button>
+          ))}
+        </div>
         <div className='main'>
+
+
+
           {
-            users.map((item, index) => {
+            filteredArray.map((item, index) => {
 
               return (
                 <div key={index} className='card'>
