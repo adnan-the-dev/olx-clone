@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css'
 import Middle from './componenApp/componentBox/Middle';
 import Right from './componenApp/componentBox/Right';
+import API from './componenApp/API';
 
 function App() {
 
@@ -68,8 +69,9 @@ function App() {
 
   return (
     <div className='cover'>
-      <Middle getDataFromMiddle={getDataFromMiddle} toBeEdit={toBeEdit} users={users} nowEdit={nowEdit} />
-      <Right users={users} editUserFun={editUserFun} />
+      {/* <Middle getDataFromMiddle={getDataFromMiddle} toBeEdit={toBeEdit} users={users} nowEdit={nowEdit} />
+      <Right users={users} editUserFun={editUserFun} /> */}
+      <API/>
     </div>
   );
 }
