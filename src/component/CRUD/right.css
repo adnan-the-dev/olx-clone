@@ -16,3 +16,15 @@
 .user-btn button:hover {
   background-color: rgb(61, 68, 68);
 }
+.parent{
+  height: 46px;
+  border: 1px solid gray;
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.inp{
+  padding: 7px 9px;
+
+}
