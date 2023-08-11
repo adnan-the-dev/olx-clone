@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import '../style.css'
+import './SheardFile/style.css'
 import './right.css'
 function Right({ users, editUserFun }) {
 
