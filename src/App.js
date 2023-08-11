@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css'
-import Middle from './componenApp/componentBox/Middle';
-import Right from './componenApp/componentBox/Right';
-import API from './componenApp/API';
+import Middle from './component/CRUD/Middle';
+import Right from './component/CRUD/Right';
 
 function App() {
 
@@ -46,15 +45,9 @@ function App() {
   function getDataFromMiddle(data) {
     setUsers([...users, data])
 
-    // localStorage.setItem('users', JSON.stringify([...users]))
-    // const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-    // const updatedUsers = [...existingUsers, data];
-    // setUsers(updatedUsers);
-    // localStorage.setItem('users', JSON.stringify(updatedUsers));
   }
 
 
-  // edit section
   const [toBeEdit, setToBeEdit] = useState({})
 
   function editUserFun({ index, id }) {
@@ -69,9 +62,8 @@ function App() {
 
   return (
     <div className='cover'>
-      {/* <Middle getDataFromMiddle={getDataFromMiddle} toBeEdit={toBeEdit} users={users} nowEdit={nowEdit} />
-      <Right users={users} editUserFun={editUserFun} /> */}
-      <API/>
+      <Middle getDataFromMiddle={getDataFromMiddle} toBeEdit={toBeEdit} users={users} nowEdit={nowEdit} />
+      <Right users={users} editUserFun={editUserFun} />
     </div>
   );
 }
