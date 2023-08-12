@@ -12,6 +12,9 @@ function Right({ users, editUserFun }) {
 
   const [categroy, setCateGroy] = useState("all")
 
+  const [searchQuery,setSearchQuery] = useState("")
+
+
   const activeUsers = users.filter((user) => user.active)
   const inActiveUsers = users.filter((user) => !user.active)
 
@@ -19,13 +22,36 @@ function Right({ users, editUserFun }) {
     activeUsers : categroy === "In-active" ?
       inActiveUsers : null
 
-
-
   const userIndex = users.findIndex((item) => item.id == userId)
 
   const userEditIndex = users.findIndex((item) => item.id == userEdit)
 
   editUserFun({ index: userEditIndex, id: userEdit })
+
+
+
+  // let terms = searchQuery.toLowerCase().split('')
+  // console.log(terms);
+  // let searchedArray = terms.forEach(term => filteredArray.filter((user)=> user.name == term) )
+  // let searchedArray = filteredArray.filter((user)=>user.name.toLowerCase() === term)
+  // console.log(searchedArray, 'searchedArray');
+
+  
+//   const filteredItems = users?.filter((item) => {
+//     const terms = searchQuery.split(' ');
+//     return (
+//       (!categroy || item.name === categroy) &&
+//       terms.every((term) => {
+//         return item.name.toLowerCase().includes(term.toLowerCase());
+//       })
+//     );
+//   });
+// console.log(filteredItems, 'filteredItems');
+
+
+
+
+
 
 
   const removeUser = () => {
@@ -40,18 +66,23 @@ function Right({ users, editUserFun }) {
         width: '100%',
         border: '1px solid red'
       }}>
+        <div className='parent'>
+          <div className='user-btn'>
+            {categories.map((cat, ind) => (
+              <button style={{
+                backgroundColor: categroy == cat ? 'rgb(61, 68, 68)' : '#4CAF50'
+              }} key={ind} onClick={() => { setCateGroy(cat) }}>{cat}</button>
 
-        <div className='user-btn'>
-          {categories.map((cat, ind) => (
-            <button style={{
-              backgroundColor: categroy == cat ? 'rgb(61, 68, 68)' : '#4CAF50'
-            }} key={ind} onClick={() => { setCateGroy(cat) }}>{cat}</button>
-          ))}
+            ))}
+          
+          </div>
+          <div></div>
+          <div>
+              <input className='inp' onChange={(e)=>{setSearchQuery(e.target.value)}} type="text" id="name" placeholder='Search Item' />
+            </div>
         </div>
+
         <div className='main'>
-
-
-
           {
             filteredArray.map((item, index) => {
 
