@@ -6,8 +6,6 @@ import Right from './component/CRUD/Right';
 function App() {
 
 
-  // http://api.weatherapi.com/v1/current.json?key=cf7c3e48919d4d46b88203928231108 &q=faisalabad&aqi=no
-  // cf7c3e48919d4d46b88203928231108 
 
   const [users, setUsers] = useState([
     {
