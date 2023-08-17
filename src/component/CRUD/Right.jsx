@@ -12,7 +12,7 @@ function Right({ users, editUserFun }) {
 
   const [categroy, setCateGroy] = useState("all")
 
-  const [searchQuery,setSearchQuery] = useState("")
+  const [searchQuery, setSearchQuery] = useState("")
 
 
   const activeUsers = users.filter((user) => user.active)
@@ -27,32 +27,6 @@ function Right({ users, editUserFun }) {
   const userEditIndex = users.findIndex((item) => item.id == userEdit)
 
   editUserFun({ index: userEditIndex, id: userEdit })
-
-
-
-  // let terms = searchQuery.toLowerCase().split('')
-  // console.log(terms);
-  // let searchedArray = terms.forEach(term => filteredArray.filter((user)=> user.name == term) )
-  // let searchedArray = filteredArray.filter((user)=>user.name.toLowerCase() === term)
-  // console.log(searchedArray, 'searchedArray');
-
-  
-//   const filteredItems = users?.filter((item) => {
-//     const terms = searchQuery.split(' ');
-//     return (
-//       (!categroy || item.name === categroy) &&
-//       terms.every((term) => {
-//         return item.name.toLowerCase().includes(term.toLowerCase());
-//       })
-//     );
-//   });
-// console.log(filteredItems, 'filteredItems');
-
-
-
-
-
-
 
   const removeUser = () => {
     users.splice(userIndex, 1)
@@ -74,12 +48,12 @@ function Right({ users, editUserFun }) {
               }} key={ind} onClick={() => { setCateGroy(cat) }}>{cat}</button>
 
             ))}
-          
+
           </div>
           <div></div>
           <div>
-              <input className='inp' onChange={(e)=>{setSearchQuery(e.target.value)}} type="text" id="name" placeholder='Search Item' />
-            </div>
+            <input className='inp' onChange={(e) => { setSearchQuery(e.target.value) }} type="text" id="name" placeholder='Search Item' />
+          </div>
         </div>
 
         <div className='main'>
